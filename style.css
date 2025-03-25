@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    position: relative;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    /* Ensure body takes full viewport height */
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("world.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(7px);
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.mymusic {
+    flex: 1;
+    /* Allow .mymusic to grow and fill available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 20px 5%;
+    padding: 20px 0;
+    min-height: 100vh;
+    /* Ensure it takes full viewport height */
+}
+
+.catalog {
+    width: 100%;
+}
+
+.musicicons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 0 15px;
+}
+
+.musicicons .IMG {
+    text-align: center;
+}
+
+.musicicons img {
+    border-radius: 30%;
+    box-sizing: border-box;
+    padding: 15px;
+    height: 150px;
+    width: 150px;
+    transition: transform ease 0.5s;
+    /* Smooth transition for scaling */
+}
+
+/* Desktop hover effect (animations only for desktop) */
+@media (min-width: 769px) {
+    .musicicons img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
+/* Mobile layout (2 blocks side by side, no animations) */
+@media (max-width: 768px) {
+    .musicicons .IMG {
+        width: calc(50% - 10px);
+    }
+
+    .musicicons img {
+        height: 120px;
+        width: 120px;
+        padding: 10px;
+        transition: none;
+        /* Remove transition on mobile */
+    }
+
+    .musicicons .label {
+        font-size: 12px;
+    }
+}
+
+/* Desktop layout (5 blocks side by side default) */
+@media (min-width: 769px) {
+    .musicicons .IMG {
+        width: calc(20% - 12px);
+    }
+}
+
+.musicicons .label {
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
