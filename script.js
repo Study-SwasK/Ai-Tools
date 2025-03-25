@@ -3,13 +3,11 @@ function adjustLayout() {
     const items = document.querySelectorAll('.musicicons .IMG');
     const screenWidth = window.innerWidth;
 
-    // Desktop dynamic adjustment
-    if (screenWidth > 768) {
+    // Desktop dynamic adjustment (only for screens ≥1000px)
+    if (screenWidth >= 1000) {
         let itemsPerRow = 5; // Default
 
-        if (screenWidth < 1000) {
-            itemsPerRow = 4;
-        } else if (screenWidth > 1400) {
+        if (screenWidth > 1400) {
             itemsPerRow = 6;
         }
 

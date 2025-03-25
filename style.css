@@ -47,12 +47,16 @@ body::before {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
+    /* Increased gap for better spacing */
     margin: 0 15px;
+    padding: 20px 0;
+    /* Added padding for a cleaner look */
 }
 
 .musicicons .IMG {
     text-align: center;
+    box-sizing: border-box;
 }
 
 .musicicons img {
@@ -73,18 +77,62 @@ body::before {
     }
 }
 
-/* Mobile layout (2 blocks side by side, no animations) */
-@media (max-width: 768px) {
+/* Layout for screens less than 1000px: Vertical with 2 columns */
+@media (max-width: 999px) {
+    .mymusic {
+        align-items: flex-start;
+        /* Align items to the top */
+    }
+
+    .musicicons {
+        flex-direction: row;
+        /* Keep 2 columns */
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 30px 0;
+        /* Increased padding for a cleaner look */
+    }
+
     .musicicons .IMG {
-        width: calc(50% - 10px);
+        width: calc(50% - 20px);
+        /* 2 columns with adjusted gap */
+        min-width: 200px;
+        /* Ensure minimum width to prevent overlap */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        /* Space between rows */
     }
 
     .musicicons img {
-        height: 120px;
-        width: 120px;
+        height: 160px;
+        /* Slightly smaller to prevent overlap */
+        width: 160px;
         padding: 10px;
         transition: none;
         /* Remove transition on mobile */
+    }
+
+    .musicicons .label {
+        font-size: 14px;
+    }
+}
+
+/* Mobile layout (≤768px): Same as <1000px but with smaller icons */
+@media (max-width: 768px) {
+    .musicicons .IMG {
+        width: calc(50% - 20px);
+        /* Maintain 2 columns */
+        min-width: 180px;
+        /* Adjusted for smaller screens */
+    }
+
+    .musicicons img {
+        height: 140px;
+        /* Smaller for very small screens */
+        width: 140px;
     }
 
     .musicicons .label {
@@ -92,8 +140,8 @@ body::before {
     }
 }
 
-/* Desktop layout (5 blocks side by side default) */
-@media (min-width: 769px) {
+/* Desktop layout (≥1000px): 5 blocks side by side default */
+@media (min-width: 1000px) {
     .musicicons .IMG {
         width: calc(20% - 12px);
     }
